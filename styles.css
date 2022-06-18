@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./images/bg-intro-desktop.png");
+  background-color: hsl(0, 100%, 74%);
+  color: #ffffff;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  padding: 6rem;
+  transform: translate(-50%, -50%)
+}
+
+h1 {
+    font-weight: 600;
+}
+h1, p {
+    text-align: left;
+}
+
+.form_div {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 30px;
+    width: 500px;
+
+}
+
+form {
+    display: grid;
+}
+
+form input {
+    margin-bottom: 20px;
+    height: 3rem;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+input[type="text"]::placeholder {
+    padding-left: 15px;
+}
+
+input[type="text"]:focus {
+    text-indent: 1rem;
+  }
+
+/* Button */
+.trial_btn {
+    background-color: hsl(248, 32%, 49%);
+    width: 500px;
+    height: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-width: 0px;
+    border-style: none;
+    border-color: white;
+    color: white;
+    border-radius: 5px;
+}
+
+.claim_trial {
+    background-color: hsl(154, 59%, 51%);
+    color: white;
+    height: 3rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-style: none;
+
+}
+
+small {
+    color: darkgray;
+}
+
+small strong {
+    color: red;
+}
+
+/* 
+- Blue: hsl(248, 32%, 49%)
+Green: hsl(154, 59%, 51%)
+### Neutral
+
+- Dark Blue: hsl(249, 10%, 26%) 
+- Grayish Blue: hsl(246, 25%, 77%)
+*/
