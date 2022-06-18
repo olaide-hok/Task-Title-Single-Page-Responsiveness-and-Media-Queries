@@ -45,7 +45,7 @@ p {
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 30px;
-  width: 500px;
+  max-width: 500px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
@@ -55,29 +55,129 @@ form {
   display: grid;
 }
 
-form input {
+.div_form {
+    position: relative;
+  }
+  
+form div input {
   margin-bottom: 20px;
   height: 3rem;
   border-radius: 5px;
   border-width: 1px;
   font-family: "Poppins", sans-serif;
+  width: 100%;
 }
 
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder {
-  padding-left: 15px;
+form div label {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  color: hsl(249, 10%, 26%);
 }
 
+/* Style input while in focus state */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
   text-indent: 1rem;
-  border-color: hsl(246, 25%, 77%);
+  border: 3px solid hsl(246, 25%, 77%);
 }
 
-input:required:focus {
-  border-color: hsl(0, 100%, 74%);
+/* Indent valid input */
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="password"]:valid {
+  text-indent: 1rem;
+}
+
+/* Hides label when input is in focus */
+div > input[type="text"]:focus + label,
+div > input[type="email"]:focus + label,
+div > input[type="password"]:focus + label {
+  opacity: 0;
+}
+
+/* Hides label after input area contains valid text */
+form > div > input[type="text"]:valid + label,
+form > div > input[type="email"]:valid + label,
+form > div > input[type="password"]:valid + label {
+  opacity: 0;
+}
+
+/* Flags input border after input contains invalid entry being out of focus */
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+form > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+  /* show error logo*/
+  background: url("./images/icon-error.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 5px;
+  border: 3px solid hsl(0, 100%, 74%);
+}
+
+/* Hides input label after input contains invalid entry being out of focus */
+form
+  > div
+  > input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
+  + label,
+form
+  > div
+  > input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
+  + label,
+form
+  > input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+  + label {
+  opacity: 0;
+}
+
+/* div > input:required:focus {
+  /* border-color: hsl(0, 100%, 74%); */
+  /* border: 3px solid hsl(0, 100%, 74%); */
+/* } */ 
+
+/* Style input box with error logo for invalid entry */
+form > div > input[type="text"]:invalid:focus,
+form > div > input[type="email"]:invalid:focus,
+form > div > input[type="password"]:invalid:focus {
+  /* show error logo*/
+  background: url("./images/icon-error.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 5px;
+  border: 1px solid hsl(0, 100%, 74%);
+}
+
+.requirements {
+  color: hsl(0, 100%, 74%);
+  font-style: italic;
+  max-height: 0;
+  transition: 0.28s;
+  overflow: hidden;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+input[type="text"]:invalid:focus:not(:placeholder-shown) ~ p,
+input[type="email"]:invalid:focus:not(:placeholder-shown) ~ p,
+input[type="password"]:invalid:focus:not(:placeholder-shown) ~ p {
+  /* Show the more robust requirement instructions below. */
+  max-height: 200px;
+  /* padding: 0 30px 20px 50px; */
+}
+
+/* When that invalid input becomes in focus (and also still isn't empty) */
+input[type="text"]:focus:not(:placeholder-shown) ~ p,
+input[type="email"]:focus:not(:placeholder-shown) ~ p,
+input[type="password"]:focus:not(:placeholder-shown) ~ p {
+  /* Show the more robust requirement instructions below. */
+  max-height: 200px;
+  /* padding: 0 30px 20px 50px; */
 }
 
 /* Button */
@@ -164,14 +264,3 @@ Green: hsl(154, 59%, 51%)
 - Dark Blue: hsl(249, 10%, 26%) 
 - Grayish Blue: hsl(246, 25%, 77%)
 */
-
-form > input[type="text"]:invalid:focus,
-form > input[type="email"]:invalid:focus,
-form > input[type="password"]:invalid:focus {
-  /* show error logo*/
-  background: url("./images/icon-error.svg");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 95% center;
-  padding-right: 5px;
-}

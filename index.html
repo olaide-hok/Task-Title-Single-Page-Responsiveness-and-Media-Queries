@@ -24,18 +24,49 @@
       </div>
 
       <div>
-        <button class="btn trial_btn"> <strong> Try if free 7 days </strong> than $20/mo. thereafter </button>
+        <button class="btn trial_btn">
+          <strong> Try if free 7 days </strong> than $20/mo. thereafter
+        </button>
         <div class="form_div">
           <form>
-            <input type="text" placeholder="First Name" required/>
-            <input type="text" placeholder="Last Name" required/>
-            <input type="email" placeholder="Email Address" required/>
-            <input type="password" placeholder="Password" required/>
+            <div class="div_form">
+              <input type="text" id="first_name" placeholder=" " required />
+              <label for="first_name" class="label">First Name</label>
+              <p class="requirements">First Name cannot be empty</p>
+            </div>
 
-            <button class="btn claim_trial" type="submit">Claim Your Free Trial</button>
+            <div class="div_form">
+              <input type="text" id="last_name" placeholder=" " required />
+              <label for="last_name" class="label">Last Name</label>
+              <p class="requirements">Last Name cannot be empty</p>
+            </div>
+
+            <div class="div_form">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder=" "
+                required
+              />
+              <label for="email" class="label">Email Address</label>
+              <p class="requirements">Looks like this is not an email</p>
+            </div>
+
+            <div class="div_form">
+              <input type="password" name="password" placeholder=" " required />
+              <label for="password" class="label">Password</label>
+              <p class="requirements">Password cannot be empty</p>
+            </div>
+
+            <button class="btn claim_trial" type="submit">
+              Claim Your Free Trial
+            </button>
           </form>
-          <small>By clicking the button, you are agreeing to our  <a> Terms and Services</a></small>
-
+          <small
+            >By clicking the button, you are agreeing to our
+            <a> Terms and Services</a></small
+          >
         </div>
       </div>
     </main>
