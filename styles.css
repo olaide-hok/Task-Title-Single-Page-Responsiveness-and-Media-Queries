@@ -63,17 +63,21 @@ form input {
   font-family: "Poppins", sans-serif;
 }
 
-input[type="text"]::placeholder {
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
   padding-left: 15px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
   text-indent: 1rem;
   border-color: hsl(246, 25%, 77%);
 }
 
 input:required:focus {
-    border-color: hsl(0, 100%, 74%);
+  border-color: hsl(0, 100%, 74%);
 }
 
 /* Button */
@@ -81,13 +85,11 @@ input:required:focus {
   color: white;
   height: 3rem;
   font-family: "Poppins", sans-serif;
-
-
 }
 
 .btn:hover {
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
@@ -110,7 +112,6 @@ input:required:focus {
   font-weight: 600;
   border-style: none;
 }
-
 
 small {
   color: darkgray;
@@ -163,3 +164,14 @@ Green: hsl(154, 59%, 51%)
 - Dark Blue: hsl(249, 10%, 26%) 
 - Grayish Blue: hsl(246, 25%, 77%)
 */
+
+form > input[type="text"]:invalid:focus,
+form > input[type="email"]:invalid:focus,
+form > input[type="password"]:invalid:focus {
+  /* show error logo*/
+  background: url("./images/icon-error.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 5px;
+}
