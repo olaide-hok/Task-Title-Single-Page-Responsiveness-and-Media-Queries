@@ -84,6 +84,10 @@ input[type="text"]:focus {
 
 small {
     color: darkgray;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    align-items: center;
 }
 
 small strong {
